@@ -51,3 +51,10 @@
 #endif
 
 #define DEFAULT_TIMEOUT_MS 500
+
+typedef struct {
+    const char *host;
+    int start_port;
+    int end_port;
+    int timeout_ms;
+} scan_agrs_t;
