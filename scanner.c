@@ -27,3 +27,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
+#ifdef _WIN32
+    #include <winsock2.h>
+    #include <ws2rcpip.h>
+    #pragma comment(lib, "ws2_32.lib")
+    typedef HANDLE thread_handle_t;
+    #define CLOSESOCK closesocket
