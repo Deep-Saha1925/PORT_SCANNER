@@ -21,3 +21,9 @@
  *   ./portscanner <host> <start_port> <end_port> [num_threads]
  *   ./portscanner scanme.nmap.org 1 1024 50
  */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
