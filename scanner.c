@@ -58,3 +58,13 @@ typedef struct {
     int end_port;
     int timeout_ms;
 } scan_agrs_t;
+
+// Platform setup
+int init_sockets(void){
+    #ifdef _WIN32
+        WSADATA wsa;
+        return WSAStartup(MAKEWORD(2, 2), &wsa) == 0;
+    #else
+        return 1;
+    #endif
+}
