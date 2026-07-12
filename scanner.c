@@ -49,3 +49,5 @@
     #define INVALID_SOCKET (-1)
     #define CLOSESOCK close
 #endif
+
+#define DEFAULT_TIMEOUT_MS 500
