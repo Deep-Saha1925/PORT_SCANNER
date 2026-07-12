@@ -34,3 +34,18 @@
     #pragma comment(lib, "ws2_32.lib")
     typedef HANDLE thread_handle_t;
     #define CLOSESOCK closesocket
+
+#else
+    #include<sys/socket.h>
+    #include <netinet/in.h>
+    #include <arpa/inet.h>
+    #include <netdb.h>
+    #include <unistd.h>
+    #include <pthread.h>
+    #include <fcntl.h>
+    #include <errno.h>
+    typedef pthread_t thread_handle_t;
+    typedef int SOCKET;
+    #define INVALID_SOCKET (-1)
+    #define CLOSESOCK close
+#endif
