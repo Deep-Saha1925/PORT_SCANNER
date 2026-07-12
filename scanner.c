@@ -68,3 +68,9 @@ int init_sockets(void){
         return 1;
     #endif
 }
+
+void cleanup_sockets(void){
+    #ifdef _WIN32
+        WSACleanup();
+    #endif
+}
