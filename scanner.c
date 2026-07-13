@@ -103,4 +103,10 @@ int scan_port(const char *host, int port, int timeout_ms) {
         return 0;
     }
 
+    SOCKET sock = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+    if (sock == INVALID_SOCKET) {
+        freeaddrinfo(res);
+        return 0;
+    }
+
 }
