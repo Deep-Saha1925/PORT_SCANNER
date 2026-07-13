@@ -109,4 +109,6 @@ int scan_port(const char *host, int port, int timeout_ms) {
         return 0;
     }
 
+    set_nonblocking(sock);
+
 }
