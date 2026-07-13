@@ -84,3 +84,7 @@ void set_nonblocking(SOCKET sock) {
         fcntl(sock, F_SETFL, flags | O_NONBLOCK);
     #endif
 }
+
+/* ---------- Core scanning logic ---------- */
+ 
+/* Returns 1 if the port is open, 0 otherwise. */
