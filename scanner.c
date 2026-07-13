@@ -95,4 +95,8 @@ int scan_port(const char *host, int port, int timeout_ms) {
     char port_str[6];
     snprintf(port_str, sizeof(port_str), "%d", port);
 
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;      /* IPv4 or IPv6 */
+    hints.ai_socktype = SOCK_STREAM;  /* TCP */
+
 }
