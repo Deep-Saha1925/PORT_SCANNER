@@ -74,3 +74,13 @@ void cleanup_sockets(void){
         WSACleanup();
     #endif
 }
+
+void set_nonblocking(SOCKET sock) {
+#ifdef _WIN32
+    u_long mode = 1;
+    ioctlsocket(sock, FIONBIO, &mode);
+#else
+    int flags = fcntl(sock, F_GETFL, 0);
+    fcntl(sock, F_SETFL, flags | O_NONBLOCK);
+#endif
+}
