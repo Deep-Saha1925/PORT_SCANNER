@@ -99,4 +99,8 @@ int scan_port(const char *host, int port, int timeout_ms) {
     hints.ai_family = AF_UNSPEC;      /* IPv4 or IPv6 */
     hints.ai_socktype = SOCK_STREAM;  /* TCP */ 
 
+    if (getaddrinfo(host, port_str, &hints, &res) != 0) {
+        return 0;
+    }
+
 }
