@@ -91,6 +91,8 @@ void set_nonblocking(SOCKET sock) {
 
 int scan_port(const char *host, int port, int timeout_ms) {
 
-    
+    struct addrinfo hints, *res;
+    char port_str[6];
+    snprintf(port_str, sizeof(port_str), "%d", port);
 
 }
