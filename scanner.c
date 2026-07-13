@@ -90,4 +90,7 @@ void set_nonblocking(SOCKET sock) {
 /* Returns 1 if the port is open, 0 otherwise. */
 
 int scan_port(const char *host, int port, int timeout_ms) {
+
+    
+
 }
