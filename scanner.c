@@ -123,4 +123,8 @@ int scan_port(const char *host, int port, int timeout_ms) {
         FD_SET(sock, &write_fds);
     }
 
+    struct timeval tv;
+    tv.tv_sec = timeout_ms / 1000;
+    tv.tv_sec = (timeout_ms % 1000) * 1000;
+
 }
