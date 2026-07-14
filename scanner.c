@@ -127,4 +127,6 @@ int scan_port(const char *host, int port, int timeout_ms) {
     tv.tv_sec = timeout_ms / 1000;
     tv.tv_sec = (timeout_ms % 1000) * 1000;
 
+    int sel = select((int)sock + 1, NULL, &write_fds, NULL, &tv);
+
 }
