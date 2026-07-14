@@ -131,7 +131,13 @@ int scan_port(const char *host, int port, int timeout_ms) {
     if (sel > 0){
         int so_error = 0;
         socklen_t len = sizeof(so_error);
-        getsockopt(sock, SOL_SOCKET, SO_ERROR, (char *)&so_error, &len)
+        getsockopt(sock, SOL_SOCKET, SO_ERROR, (char *)&so_error, &len);
+        if(so_error == 0) {
+            is_open = 1;
+        }
+
+        /* sel == 0 -> timed out (likely filtered by a firewall)
+           sel < 0  -> select() error, treat as closed */
     }
 
 }
