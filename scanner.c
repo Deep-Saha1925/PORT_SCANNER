@@ -140,4 +140,8 @@ int scan_port(const char *host, int port, int timeout_ms) {
            sel < 0  -> select() error, treat as closed */
     }
 
+    CLOSESOCK(sock);
+    freeaddrinfo(res);
+    return is_open;
+
 }
