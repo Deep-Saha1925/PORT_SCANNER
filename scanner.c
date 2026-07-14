@@ -114,4 +114,13 @@ int scan_port(const char *host, int port, int timeout_ms) {
     int result = connect(sock, res->ai_addr, (int)res->ai_addrlen);
     int is_open = 0;
 
+    if(result == 0){
+        // connected
+        is_open = 1;
+    } else {
+        fd_set write_fds;
+        FD_ZERO(&write_fds);
+        FD_SET(sock, &write_fds);
+    }
+
 }
