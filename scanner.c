@@ -111,4 +111,7 @@ int scan_port(const char *host, int port, int timeout_ms) {
 
     set_nonblocking(sock);
 
+    int result = connect(sock, res->ai_addr, (int)res->ai_addrlen);
+    int is_open = 0;
+
 }
