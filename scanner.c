@@ -176,4 +176,12 @@ DWORD WINAPI scan_worker(LPVOID arg){
         #endif
             return handle;
     }
+
+    void join_thread(thread_handle_t handle){
+        #ifdef _WIN32
+            WaitForSingleObject(handle, INFINITE);
+            CloseHandle(handle);
+        #else
+            pthread_join(handle);
+    }
 }
