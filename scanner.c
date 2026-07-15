@@ -149,5 +149,21 @@ int scan_port(const char *host, int port, int timeout_ms) {
 
 #ifdef _WIN32
 DWORD WINAPI scan_worker(LPVOID arg){
-    
+    #else
+    void *scan_worker(void *arg){
+    #endif
+        scan_args_t *args = (scan_agrs_t *)arg;
+        for(int port = args->start_port; port <= args->end_port; port++){
+            if(scan_port(args->host, port, args->timeout_ms)){
+                printf("[+] Port %d is OPEN\n", port);
+                fflush(stdout);
+            }
+        }
+        free(args);
+    #ifdef _WIN32
+        return 0;
+    #else
+        return NULL;
+    #endif
+    }
 }
