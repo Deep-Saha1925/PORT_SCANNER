@@ -187,6 +187,10 @@ DWORD WINAPI scan_worker(LPVOID arg){
 
     // main function
     int main(int argc, char* argv[]){
-        
+        if(argc < 4){
+            printf("Usage: %s <host> <start_port> <end_port> [num_threads]\n", argv[0]);
+            printf("Example: %s scanme.nmap.org 1 1024 50\n", argv[0]);
+            return 1;
+        }
     }
 }
