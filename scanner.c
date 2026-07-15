@@ -184,4 +184,9 @@ DWORD WINAPI scan_worker(LPVOID arg){
         #else
             pthread_join(handle, NULL);
     }
+
+    // main function
+    int main(int argc, char* argv[]){
+        
+    }
 }
