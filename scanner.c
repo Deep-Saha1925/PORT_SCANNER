@@ -171,6 +171,9 @@ DWORD WINAPI scan_worker(LPVOID arg){
         thread_handle_t handle;
         #ifdef _WIN32
             handle = CreateThread(NULL, 0, scan_worker, args, 0, NULL);
-        
+        #else
+            pthread_create(&handle, NULL, scan_worker, args);
+        #endif
+            return handle;
     }
 }
