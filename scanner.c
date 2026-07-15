@@ -143,5 +143,11 @@ int scan_port(const char *host, int port, int timeout_ms) {
     CLOSESOCK(sock);
     freeaddrinfo(res);
     return is_open;
+}
 
+// Thread worker
+
+#ifdef _WIN32
+DWORD WINAPI scan_worker(LPVOID arg){
+    
 }
