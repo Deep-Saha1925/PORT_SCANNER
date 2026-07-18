@@ -213,5 +213,11 @@ DWORD WINAPI scan_worker(LPVOID arg){
         if (num_threads > total_ports) num_threads = total_ports;
     
         printf("Scanning %s, ports %d-%d, using %d threads...\n\n", host, start_port, end_port, num_threads);
+
+        clock_t start_time = clock();
+    
+        int ports_per_thread = total_ports / num_threads;
+        thread_handle_t *threads = malloc(sizeof(thread_handle_t) * num_threads);
+        int current_port = start_port;
     }
 }
