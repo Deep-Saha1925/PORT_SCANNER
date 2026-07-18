@@ -198,8 +198,10 @@ DWORD WINAPI scan_worker(LPVOID arg){
         int num_threads = (argc >= 5) ? atoi(argv[4]) : 50;
 
         if (start_port < 1 || end_port > 65535 || start_port > end_port) {
-        printf("Invalid port range. Must be between 1 and 65535, start <= end.\n");
-        return 1;
-    }
+            printf("Invalid port range. Must be between 1 and 65535, start <= end.\n");
+            return 1;
+        }
+
+        
     }
 }
