@@ -202,6 +202,11 @@ DWORD WINAPI scan_worker(LPVOID arg){
             return 1;
         }
 
-        
+        if (num_threads < 1) num_threads = 1;
+ 
+        if (!init_sockets()) {
+            printf("Failed to initialize sockets.\n");
+            return 1;
+        }
     }
 }
