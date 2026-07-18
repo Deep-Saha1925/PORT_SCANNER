@@ -185,7 +185,6 @@ DWORD WINAPI scan_worker(LPVOID arg){
             pthread_join(handle, NULL);
     }
 
-    // main function
     int main(int argc, char* argv[]){
         if(argc < 4){
             printf("Usage: %s <host> <start_port> <end_port> [num_threads]\n", argv[0]);
