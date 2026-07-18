@@ -208,5 +208,10 @@ DWORD WINAPI scan_worker(LPVOID arg){
             printf("Failed to initialize sockets.\n");
             return 1;
         }
+
+        int total_ports = end_port - start_port + 1;
+        if (num_threads > total_ports) num_threads = total_ports;
+    
+        printf("Scanning %s, ports %d-%d, using %d threads...\n\n", host, start_port, end_port, num_threads);
     }
 }
