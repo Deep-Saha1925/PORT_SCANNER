@@ -242,5 +242,8 @@ DWORD WINAPI scan_worker(LPVOID arg){
 
         free(threads);
 
+        double elapsed = (double)(clock() - start_time) / CLOCKS_PER_SEC;
+        printf("\nScan completed in %.2f seconds.\n", elapsed);
+
     }
 }
