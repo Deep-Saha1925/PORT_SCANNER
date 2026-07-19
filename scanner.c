@@ -240,5 +240,7 @@ DWORD WINAPI scan_worker(LPVOID arg){
             join_thread(threads[i]);
         }
 
+        free(threads);
+
     }
 }
