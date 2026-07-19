@@ -235,5 +235,10 @@ DWORD WINAPI scan_worker(LPVOID arg){
     
             threads[i] = start_thread(args);
         }
+
+        for (int i = 0; i < num_threads; i++) {
+            join_thread(threads[i]);
+        }
+
     }
 }
