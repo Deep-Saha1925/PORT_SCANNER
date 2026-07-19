@@ -219,5 +219,21 @@ DWORD WINAPI scan_worker(LPVOID arg){
         int ports_per_thread = total_ports / num_threads;
         thread_handle_t *threads = malloc(sizeof(thread_handle_t) * num_threads);
         int current_port = start_port;
+
+        for (int i = 0; i < num_threads; i++) {
+            scan_args_t *args = malloc(sizeof(scan_args_t));
+            args->host = host;
+            args->timeout_ms = DEFAULT_TIMEOUT_MS;
+            args->start_port = current_port;
+    
+            if (i == num_threads - 1) {
+                args->end_port = end_port; /* last thread absorbs any remainder */
+            } else {
+                args->end_port = current_port + ports_per_thread - 1;
+            }
+            current_port = args->end_port + 1;
+    
+            threads[i] = start_thread(args);
+        }
     }
 }
